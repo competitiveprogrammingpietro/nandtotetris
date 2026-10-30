@@ -1,0 +1,8 @@
+// Author: Pietro Paolini 30/10/2026
+CHIP Xor {
+    IN a, b;
+    OUT out;
+    
+    PARTS:
+   
+}

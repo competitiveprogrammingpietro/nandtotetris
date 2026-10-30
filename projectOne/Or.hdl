@@ -1,0 +1,10 @@
+// Pietro Paolini 30/10/2026
+CHIP Or {
+    IN a, b;
+    OUT out;
+    
+    PARTS:
+    Nand(a=a, b=true, out=aNegated);
+    Nand(a=b, b=true, out=bNegated);        
+    Nand(a=aNegated, b=bNegated, out=out);
+}
