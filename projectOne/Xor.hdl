@@ -1,8 +1,12 @@
-// Author: Pietro Paolini 30/10/2026
+// Author: Pietro Paolini 8/11/2026
 CHIP Xor {
     IN a, b;
     OUT out;
     
     PARTS:
-   
+    Nand(a=a, b=a, out=notA);
+    Nand(a=b, b=b, out=notB);
+    Nand(a=notA, b=b, out=notAB);
+    Nand(a=notB, b=a, out=notBA);
+    Nand(a=notAB, b=notBA, out=out);
 }

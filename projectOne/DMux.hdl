@@ -1,7 +1,4 @@
-// This file is part of www.nand2tetris.org
-// and the book "The Elements of Computing Systems"
-// by Nisan and Schocken, MIT Press.
-// File name: projects/1/DMux.hdl
+// Pietro Paolini 8/11/2026
 /**
  * Demultiplexor:
  * [a, b] = [in, 0] if sel = 0
@@ -12,5 +9,9 @@ CHIP DMux {
     OUT a, b;
 
     PARTS:
-    //// Replace this comment with your code.
+    Nand(a=sel, b=sel, out=NegSel);
+    Nand(a=in, b=NegSel, out=outA);
+    Nand(a=outA, b=outA, out=a);
+    Nand(a=in, b=sel, out=outB);
+    Nand(a=outB, b=outB, out=b);
 }

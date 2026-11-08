@@ -4,7 +4,7 @@ CHIP Or {
     OUT out;
     
     PARTS:
-    Nand(a=a, b=true, out=aNegated);
-    Nand(a=b, b=true, out=bNegated);        
+    Nand(a=a, b=a, out=aNegated);
+    Nand(a=b, b=b, out=bNegated);        
     Nand(a=aNegated, b=bNegated, out=out);
 }
