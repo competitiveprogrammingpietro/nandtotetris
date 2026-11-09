@@ -8,5 +8,5 @@ CHIP Mux {
     Nand(a=negSel, b=a, out=nandNegSelA);
     Nand(a=sel, b=b, out=nandNegSelB);
     Nand(a=nandNegSelA, b=nandNegSelB, out=out);
-    
+
 }

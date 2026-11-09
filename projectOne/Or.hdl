@@ -2,9 +2,9 @@
 CHIP Or {
     IN a, b;
     OUT out;
-    
+
     PARTS:
     Nand(a=a, b=a, out=aNegated);
-    Nand(a=b, b=b, out=bNegated);        
+    Nand(a=b, b=b, out=bNegated);$
     Nand(a=aNegated, b=bNegated, out=out);
 }

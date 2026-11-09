@@ -1,15 +1,41 @@
-// This file is part of www.nand2tetris.org
-// and the book "The Elements of Computing Systems"
-// by Nisan and Schocken, MIT Press.
-// File name: projects/1/Or8Way.hdl
-/**
- * 8-way Or gate: 
- * out = in[0] Or in[1] Or ... Or in[7]
- */
+// Pietro Paolini 9/11/2026
 CHIP Or8Way {
     IN in[8];
     OUT out;
 
     PARTS:
-    //// Replace this comment with your code.
+    // OR(1 2)
+    Nand(a=in[0], b=in[0], out=nIn0);
+    Nand(a=in[1], b=in[1], out=nIn1);
+    Nand(a=nIn0, b=nIn1, out=or1);
+
+    // OR(3, OR(1, 2))$
+    Nand(a=in[2], b=in[2], out=nIn2);
+    Nand(a=or1, b=or1 , out=nor1 );
+    Nand(a=nIn2, b=nor1, out=or2);
+
+    // OR(4, OR(OR(1, 2, 3)))$
+    Nand(a=in[3], b=in[3], out=nIn3);
+    Nand(a=or2, b=or2 , out=nor2);
+    Nand(a=nIn3, b=nor2, out=or3);
+
+    // OR(5, OR(OR(OR(1, 2), 3), 4))$
+    Nand(a=in[4], b=in[4], out=nIn4);
+    Nand(a=or3, b=or3 , out=nor3);
+    Nand(a=nIn4, b=nor3, out=or4);
+
+    // OR(6, OR(OR(OR(OR((1, 2), 3), 4), 5)))$
+    Nand(a=in[5], b=in[5], out=nIn5);
+    Nand(a=or4, b=or4 , out=nor4);
+    Nand(a=nIn5, b=nor4, out=or5);
+
+    // OR(7, OR(OR(OR(OR(OR(1, 2), 3), 4), 5), 6))))$
+    Nand(a=in[6], b=in[6], out=nIn6);
+    Nand(a=or5, b=or5 , out=nor5);
+    Nand(a=nIn6, b=nor5, out=or6);
+
+    // OR(8, OR(OR(OR(OR(OR(OR(1, 2), 3), 4), 5), 6), 7)))))$
+    Nand(a=in[7], b=in[7], out=nIn7);
+    Nand(a=or6, b=or6 , out=nor6);
+    Nand(a=nIn7, b=nor6, out=out);
 }
